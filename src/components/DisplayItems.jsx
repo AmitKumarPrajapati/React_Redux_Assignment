@@ -1,18 +1,20 @@
 import React from 'react'
 
 class DisplayItems extends React.Component {
+    
     render() {
-        const { mockData } = this.props
+        const { mockData, handleSelectItem } = this.props
+        const { data, title } = mockData
         return (
             <div>
                 <div className="title">
-                    {this.props.title}
+                    {title}
                 </div>
                 <div>
                     {
-                        mockData.map(data => (
+                        data.map((data,index) => (
                             <div className="single-item">
-                                <input type="checkbox" checked={data.selected} id="language" name={data.name} value="Language" />
+                                <input id={`${title}_${index}`} onChange={handleSelectItem} type="checkbox" checked={data.selected} name={title} value={data.name} />
                                 <label for="vehicle1">{data.name}</label>
                             </div>
                         ))

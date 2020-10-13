@@ -3,12 +3,21 @@ import DisplayItems from './DisplayItems'
 
 class LeftModule extends React.Component {
     render() {
-        const { mockDataOne, mockDataTwo, mockDataThree } = this.props;
+        let { mockData : { mockDataOne, mockDataTwo, mockDataThree },handleSelectItem } = this.props;
         return (
             <div className="left-box">
-                <DisplayItems title="Portugal" mockData={mockDataOne} />
-                <DisplayItems title="Nicaragua" mockData={mockDataTwo} />
-                <DisplayItems title="Marshall Islands" mockData={mockDataThree} />
+                <DisplayItems 
+                    mockData={mockDataOne}
+                    handleSelectItem={handleSelectItem}
+                />
+                <DisplayItems 
+                    mockData={mockDataTwo}
+                    handleSelectItem={handleSelectItem}                    
+                />
+                <DisplayItems 
+                    mockData={mockDataThree}
+                    handleSelectItem={handleSelectItem}
+                />
             </div>
         )
     }

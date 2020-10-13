@@ -2,79 +2,100 @@ import React from 'react'
 import RightModule from './RightModule';
 import LeftModule from './LeftModule'
 
-const mockDataOne = [
-    {
-        name: "Aasiya Jayawant",
-        selected: false
+const mockData = {
+    mockDataOne: {
+        title: 'Portugal',
+        data: [
+            {
+                name: "Aaron Almaraz",
+                selected: false
+            },
+            {
+                name: "Jelena Denisova",
+                selected: true
+            },
+            {
+                name: "Xenia Dolezelova",
+                selected: false
+            },
+            {
+                name: "Ezequiel Dengra",
+                selected: true
+            }
+        ]
     },
-    {
-        name: "Luvleen Lawrence",
-        selected: true
+    mockDataTwo: {
+        title: "Nicaragua",
+        data: [
+            {
+                name: "Deveedaas Nandi",
+                selected: false
+            },
+            {
+                name: "Obesy Chidy",
+                selected: true
+            },
+            {
+                name: "Xenia Dolezelova",
+                selected: false
+            },
+            {
+                name: "Ezequiel Dengra",
+                selected: true
+            }
+        ]
     },
-    {
-        name: "Rey Mibourne",
-        selected: false
-    },
-    {
-        name: "Cayla Brister",
-        selected: true
-    },
-]
 
-const mockDataTwo = [
-    {
-        name: "Deveedaas Nandi",
-        selected: false
-    },
-    {
-        name: "Obesy Chidy",
-        selected: true
-    },
-    {
-        name: "Xenia Dolezelova",
-        selected: false
-    },
-    {
-        name: "Ezequiel Dengra",
-        selected: true
+    mockDataThree: {
+        title: "Marshall Islands",
+        data: [
+            {
+                name: "Aaron Almaraz",
+                selected: false
+            },
+            {
+                name: "Jelena Denisova",
+                selected: true
+            },
+            {
+                name: "Xenia Dolezelova",
+                selected: false
+            },
+            {
+                name: "Ezequiel Dengra",
+                selected: true
+            }
+        ]
     }
-]
-
-const mockDataThree = [
-    {
-        name: "Aaron Almaraz",
-        selected: true
-    },
-    {
-        name: "Jelena Denisova",
-        selected: false
-    },
-    {
-        name: "Xenia Dolezelova",
-        selected: true
-    },
-    {
-        name: "Ezequiel Dengra",
-        selected: false
-    }
-]
+}
 
 class Container extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state={allData:[]}
+    }
+
+    componentWillMount(){
+        this.setState({allData:mockData})
+    }
+
+    handleSelectItem(event){
+       console.log("Hello World !")
+    }
+
     render() {
+        console.log(this.state.allData)
         return (
             <div className="container">
                 <div className="column">
                     <LeftModule
-                        mockDataOne={mockDataOne}
-                        mockDataTwo={mockDataTwo}
-                        mockDataThree={mockDataThree}
+                        mockData={this.state.allData}
+                        handleSelectItem={this.handleSelectItem}
                     />
                 </div>
                 <div className="column">
                     <RightModule
-                        mockDataOne={mockDataOne}
-                        mockDataTwo={mockDataTwo}
-                        mockDataThree={mockDataThree}
+                        mockData={this.state.allData}
                     />
                 </div>
             </div>
