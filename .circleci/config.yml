@@ -23,6 +23,9 @@ jobs:
       - run:
           name: Run Application
           command: npm start
+      - re-run:
+          name: Run Application
+          command: npm start
 
 workflows:
   version: 2
