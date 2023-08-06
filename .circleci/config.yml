@@ -23,10 +23,6 @@ jobs:
   run:
     executer: node-executor
     steps:
-      - checkout
-      - restore_cache:
-        - npm-v1-{{ checksum "package.json" }}
-        - npm-v1
       - run:
           name: Run Application
           command: npm start
