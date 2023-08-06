@@ -20,16 +20,12 @@ jobs:
           paths:
             - ~/.npm
           key: npm-v1-{{ checksum "package.json" }}
-  run:
-    executer: node-executor
-    steps:
       - run:
-          name: Run Application
-          command: npm start
+          name: Run Tests
+          command: npm test
 
 workflows:
   version: 2
   build-and-test:
     jobs:
       - build
-      - run
